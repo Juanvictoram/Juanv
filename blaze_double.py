@@ -107,12 +107,12 @@ def estrategy(resultado):
     if analise_open == True:
         send_result(resultado, color_sinal)
     else:
-        if lista_ultimas_cores[0:1] == ["P", "P", "V"]:
+        if lista_ultimas_cores[0:3] == ["P", "P", "V"]:
             color_sinal = "🟥"
             send_sinal(color_sinal)
             analise_open = True
 
-        if lista_ultimas_cores[0:1] == ["V", "V", "P"]:
+        if lista_ultimas_cores[0:3] == ["V", "V", "P"]:
             color_sinal = "⬛️"
             send_sinal(color_sinal)
             analise_open = True
