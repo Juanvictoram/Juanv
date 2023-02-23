@@ -1,0 +1,20 @@
+# Sportingbet-API
+ Servidor que cria  API local de vários cassinos.
+
+ 
+# GAMES
+
+01 - Blaze Double - http://127.0.0.1:65000/blaze/double
+02 - Blaze Crash - http://127.0.0.1:65000/blaze/crash
+03 - BacBo - http://127.0.0.1:65000/bacbo
+04 - Football Studio - http://127.0.0.1:65000/football_studio
+
+# Instalação
+01 - Clone o repositório do github: https://github.com/mscodex/Sportingbet-API
+02 - Instale os módulos pip install -r requeriments.txt
+03 - Configure as informações do token_bot e chat_id no arquivo blaze_double.py
+04 - Baixe o app SportingbetAPI-2.0.exe, registre sua conta e faça login.
+05 - Execute o arquivo api.py usando python api.py
+
+PRONTO!
+Contato: https://t.me/mscodex
