@@ -3,7 +3,7 @@ import time
 
 
 class utils:
-    
+
     def get_data(self):
         self.now = str(datetime.datetime.now().strftime("%d/%m/%Y"))
         self.checknow = self.now
@@ -15,7 +15,7 @@ class utils:
 🎲 *ENTRADA CONFIRMADA!*
 
 🎰 Apostar no {self.direction_color}
-⚪️ Proteger branco. 
+🟡 Proteger o empate (Meio) 
 🔁 Fazer até 2 gales
 
 📱 *{self.name}*
@@ -43,7 +43,7 @@ class utils:
     def delet(self):
         if self.message_delete == True:
             self.bot.delete_message(chat_id=self.user_id,
-                                message_id=self.message_ids)
+                                    message_id=self.message_ids)
             self.message_delete = False
 
     def results(self):
@@ -104,7 +104,7 @@ class utils:
         return
 
     def martingale(self):
-        if self.result == 'B':
+        if self.result == 'E':
             if self.entrada_atual == 0:
                 self.max_hate += 1
                 self.win_results += 1
@@ -112,8 +112,8 @@ class utils:
                 self.empate_semgale += 1
                 self.win_semgale += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
-    ⚪️⚪️⚪️ BRANCO ⚪️⚪️⚪️
-        {self.empate_results}ª BRANCO DO DIA!!!
+    ✅✅✅ EMPATE ✅✅✅
+        {self.empate_results}ª EMPATE DO DIA!!!
     '''))
                 utils.reset(self)
                 return
@@ -125,8 +125,8 @@ class utils:
                 self.empate_gale1 += 1
                 self.win_gale1 += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
-    ⚪️⚪️⚪️ BRANCO ⚪️⚪️⚪️
-        {self.empate_results}ª BRANCO DO DIA!!!
+    ✅✅✅ EMPATE ✅✅✅
+        {self.empate_results}ª EMPATE DO DIA!!!
     '''))
                 utils.reset(self)
                 return
@@ -138,8 +138,8 @@ class utils:
                 self.empate_gale2 += 1
                 self.win_gale1 += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
-    ⚪️⚪️⚪️ BRANCO ⚪️⚪️⚪️
-        {self.empate_results}ª BRANCO DO DIA!!!
+    ✅✅✅ EMPATE ✅✅✅
+        {self.empate_results}ª EMPATE DO DIA!!!
     '''))
                 utils.reset(self)
                 return
@@ -161,7 +161,7 @@ class utils:
                 self.win_gale1 += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
 ✅✅✅ GREEN!!! ✅✅✅
-(⚫️🔴)'''))
+(🔵🔴)'''))
                 utils.reset(self)
                 return
 
@@ -171,18 +171,18 @@ class utils:
                 self.win_gale2 += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
 ✅✅✅ GREEN!!! ✅✅✅
-(⚫️⚫️🔴)'''))
+(🔵🔵🔴)'''))
                 utils.reset(self)
                 return
 
-        if self.result == 'P' and self.direction_color == '⚫️':
+        if self.result == 'A' and self.direction_color == '🔵':
             if self.entrada_atual == 0:
                 self.win_results += 1
                 self.max_hate += 1
                 self.win_semgale += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
 ✅✅✅ GREEN!!! ✅✅✅
-(⚫️)'''))
+(🔵)'''))
                 utils.reset(self)
                 return
 
@@ -192,7 +192,7 @@ class utils:
                 self.win_gale1 += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
 ✅✅✅ GREEN!!! ✅✅✅
-(🔴⚫️)'''))
+(🔴🔵)'''))
                 utils.reset(self)
                 return
 
@@ -202,11 +202,11 @@ class utils:
                 self.win_gale2 += 1
                 self.bot.send_message(chat_id=self.user_id, text=(f'''
 ✅✅✅ GREEN!!! ✅✅✅
-(🔴🔴⚫️)'''))
+(🔴🔴🔵)'''))
                 utils.reset(self)
                 return
 
-        if self.result == 'P' and self.direction_color == '🔴':
+        if self.result == 'A' and self.direction_color == '🔴':
             if self.entrada_atual == 0:
                 self.entrada_atual += 1
                 utils.alert(self)
@@ -225,7 +225,7 @@ Loss🚫'''))
                 self.max_hate = 0
                 return
 
-        if self.result == 'V' and self.direction_color == '⚫️':
+        if self.result == 'V' and self.direction_color == '🔵':
             if self.entrada_atual == 0:
                 self.entrada_atual += 1
                 utils.alert(self)
@@ -245,41 +245,30 @@ Loss🚫'''))
                 return
 
     def estrategy(self, finalcor):
-        lista = []
-
-        for i in finalcor:
-            if i >= 1 and i <= 7:
-                lista.append("V")
-            elif i >= 8 and i <= 17:
-                lista.append("P")
-            else:
-                lista.append("B")
-
+        lista = finalcor
 
         if self.analisar == 1:
             self.result = lista[0]
             utils.martingale(self)
             return
-        
+
         elif self.analisar == 0:
-            if lista[0:3] == ['V', 'V', 'P']:
-                self.direction_color = '⚫️'
+            if lista[0:3] == ['V', 'V', 'A']:
+                self.direction_color = '🔵'
                 self.analisar = 1
                 utils.send_sinal(self)
                 return
 
-            if lista[0:3] == ['P', 'P', 'V']:
+            if lista[0:3] == ['A', 'A', 'V']:
                 self.direction_color = '🔴'
                 self.analisar = 1
                 utils.send_sinal(self)
                 return
 
-            if lista[0:2] == ['V', 'P']:
+            if lista[0:2] == ['V', 'A']:
                 utils.alert_sinal(self)
                 return
 
-            if lista[0:2] == ['P', 'V']:
+            if lista[0:2] == ['A', 'V']:
                 utils.alert_sinal(self)
                 return
-
-
