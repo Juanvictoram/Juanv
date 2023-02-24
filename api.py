@@ -33,6 +33,7 @@ class bot:
         self.bot = telebot.TeleBot(token=self.token_bot, parse_mode='MARKDOWN')
         g.utils.get_data(self)
 
+
     def requets_game(self):
         url = requests.get(self.link)
         data = json.loads(url.content)
