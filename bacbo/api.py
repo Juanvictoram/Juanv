@@ -56,5 +56,4 @@ while True:
         objeto = bot()
         objeto.rum()
     except:
-        print("Error 404 - verify your connection.")
         continue
