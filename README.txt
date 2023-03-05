@@ -2,11 +2,18 @@
  Servidor que cria  API local de vários cassinos.
 
  
-# GAMES ADICIONADOS
- FREE
- 01 - Blaze Double - http://api.mxvinvest.com:63000/blaze-double
- 02 - Blaze Crash - http://api.mxvinvest.com:63000/blaze-crash
+GAMES GRÁTIS 
+    ✅ - Blaze Double - http://api.mxvinvest.com:63000/blaze-double
+    ✅ - Blaze Crash - http://api.mxvinvest.com:63000/blaze-crash
 
+
+GAMES PREMIUM
+    ✅ - Bacbo
+    ✅ - Fan Tan
+    ✅ - Football Studio
+    ✅ - Football Studio Dice
+    ✅ - Roleta Relampago
+    ✅ - Xxxtreme Lightning Roulette
 
 # INSTALAÇÃO
  01 - Clone o repositório do github: https://github.com/mscodex/SportingbetAPI
