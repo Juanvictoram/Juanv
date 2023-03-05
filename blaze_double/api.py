@@ -5,6 +5,7 @@ import telebot
 import time
 
 
+
 class bot:
     def __init__(self):
         self.name = 'Blaze Double'
