@@ -2,14 +2,15 @@ import requests
 import json
 import blaze_double as g
 import telebot
+import time
 
 
 class bot:
     def __init__(self):
         self.name = 'Blaze Double'
-        self.token_bot = 'TOKEN DO BOT'
-        self.user_id = 'CHAT ID'
-        self.link = 'http://127.0.0.1:65000/blaze/double'
+        self.token_bot = '5890042154:AAEjg0dOTFbbRTOaYNOxYnONiPZKmiH3P7Y'
+        self.user_id = '-1001711857416'
+        self.link = 'http://api.mxvinvest.com:63000/blaze-double'
         self.chave = 'blaze_double'
         self.result = None
         self.now = None
@@ -34,9 +35,11 @@ class bot:
         g.utils.get_data(self)
 
     def requets_game(self):
+        time.sleep(1)
         url = requests.get(self.link)
         data = json.loads(url.content)
-        results = data[self.chave]["results"]
+        results = data["results"]
+        print(results)
         return results
 
     def rum(self):
@@ -50,10 +53,8 @@ class bot:
                 g.utils.delet(self)
                 g.utils.estrategy(self, main_results)
 
-
-while True:
-    try:
-        objeto = bot()
-        objeto.rum()
-    except:
-        continue
+try:
+    objeto = bot()
+    objeto.rum()
+except:
+    continue
