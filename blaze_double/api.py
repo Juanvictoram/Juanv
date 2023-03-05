@@ -52,9 +52,8 @@ class bot:
                 g.utils.delet(self)
                 g.utils.estrategy(self, main_results)
 
-
 try:
     objeto = bot()
     objeto.rum()
 except:
-    continue
+    pass
