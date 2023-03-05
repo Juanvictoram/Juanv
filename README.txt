@@ -17,7 +17,7 @@ GAMES PREMIUM
 
 # INSTALAÇÃO
  01 - Clone o repositório do github: https://github.com/mscodex/SportingbetAPI
- 02 - Instale os módulos pip install -r requeriments.txt
+ 02 - Instale os módulos pip install -r .\requeriments.txt
  03 - Configure as informações do "self.token_bot" e "self.user_id" no arquivo api.py
  05 - Execute o arquivo api.py usando python api.py
 
