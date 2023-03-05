@@ -38,7 +38,6 @@ class bot:
         url = requests.get(self.link)
         data = json.loads(url.content)
         results = data["results"]
-        print(results)
         return results
 
     def rum(self):
