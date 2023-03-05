@@ -2,7 +2,7 @@ import requests
 import json
 import bacbo as g
 import telebot
-
+import time
 
 class bot:
     def __init__(self):
@@ -34,9 +34,11 @@ class bot:
         g.utils.get_data(self)
 
     def requets_game(self):
+        time.sleep(1)
         url = requests.get(self.link)
         data = json.loads(url.content)
         results = data["results"]
+        print(results)
         return results
 
     def rum(self):
