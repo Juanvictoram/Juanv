@@ -5,7 +5,6 @@ import telebot
 import time
 
 
-
 class bot:
     def __init__(self):
         self.name = 'Blaze Double'
@@ -53,6 +52,7 @@ class bot:
                 check_results = main_results
                 g.utils.delet(self)
                 g.utils.estrategy(self, main_results)
+
 
 try:
     objeto = bot()

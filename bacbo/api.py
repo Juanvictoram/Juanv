@@ -9,7 +9,7 @@ class bot:
         self.name = 'Bac Bo'
         self.token_bot = 'TOKEN DO BOT'
         self.user_id = 'CHAT ID'
-        self.link = 'http://127.0.0.1:65000/bacbo'
+        self.link = 'http://api.mxvinvest.com:63000/bac-bo'
         self.chave = 'bacbo'
         self.result = None
         self.now = None
@@ -36,7 +36,7 @@ class bot:
     def requets_game(self):
         url = requests.get(self.link)
         data = json.loads(url.content)
-        results = data[self.chave]["results"]
+        results = data["results"]
         return results
 
     def rum(self):
@@ -51,9 +51,9 @@ class bot:
                 g.utils.estrategy(self, main_results)
 
 
-while True:
-    try:
-        objeto = bot()
-        objeto.rum()
-    except:
-        continue
+
+try:
+    objeto = bot()
+    objeto.rum()
+except:
+    continue
