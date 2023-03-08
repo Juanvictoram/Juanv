@@ -9,8 +9,8 @@ class bot:
         while True:
             try:
                 self.name = 'Blaze Crash'
-                self.token_bot = '6076057018:AAEs2O2x5oswARe0sMpRyVGEl4ZaqYVp3eA'
-                self.user_id = '-1001828355004'
+                self.token_bot = 'TOKEN DO BOT'
+                self.user_id = 'CHAT ID'
                 self.link = 'http://api.mxvinvest.com:63000/blaze-crash'
                 self.result = None
                 self.now = None
