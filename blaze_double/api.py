@@ -2,7 +2,6 @@ import requests
 import json
 import blaze_double as g
 import telebot
-import time
 
 
 class bot:
@@ -35,7 +34,7 @@ class bot:
         g.utils.get_data(self)
 
     def requets_game(self):
-        time.sleep(1)
+
         url = requests.get(self.link)
         data = json.loads(url.content)
         results = data["results"]
@@ -45,7 +44,6 @@ class bot:
         check_results = []
         while True:
             main_results = self.requets_game()
-
             if main_results != check_results:
                 print(main_results)
                 check_results = main_results
