@@ -1,6 +1,6 @@
 import requests
 import json
-import blaze_crash as g
+import blaze_double as g
 import telebot
 
 
