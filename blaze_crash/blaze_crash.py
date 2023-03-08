@@ -118,11 +118,12 @@ class utils:
             return
         
         elif self.analisar == 0:
-            if finalnum[0] >= 0.0:
-                self.analisar = 1
-                self.result = finalnum[0]
-                utils.send_sinal(self)
-                return
+            # ESTRATÉGIA DE TESTES
+            # if finalnum[0] >= 0.0:
+            #     self.analisar = 1
+            #     self.result = finalnum[0]
+            #     utils.send_sinal(self)
+            #     return
             
             if finalnum[0] <= 1.5 and finalnum[1] <= 1.5 and finalnum[2] <= 1.5:
                 self.analisar = 1

@@ -1,6 +1,6 @@
 import requests
 import json
-import blaze_double as g
+import blaze_crash as g
 import telebot
 
 
@@ -10,7 +10,6 @@ class bot:
         self.token_bot = 'TOKEN DO BOT'
         self.user_id = 'CHAT ID'
         self.link = 'http://api.mxvinvest.com:63000/blaze-double'
-        self.chave = 'blaze_double'
         self.result = None
         self.now = None
         self.check_now = None

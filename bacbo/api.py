@@ -9,7 +9,6 @@ class bot:
         self.token_bot = 'TOKEN DO BOT'
         self.user_id = 'CHAT ID'
         self.link = 'http://api.mxvinvest.com:63000/bac-bo'
-        self.chave = 'bacbo'
         self.result = None
         self.now = None
         self.check_now = None
