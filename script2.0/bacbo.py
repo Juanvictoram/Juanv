@@ -62,7 +62,7 @@ class WebScraper:
     def results(self):
 
         if self.win_results + self.empate_results + self.loss_results != 0:
-            a = 100 / (self.win_results + self.empate_results + self.loss_results) * self.win_results + self.empate_results
+            a = 100 / (self.win_results + self.empate_results + self.loss_results) * (self.win_results + self.empate_results)
         else:
             a = 0
         self.win_hate = (f'{a:,.2f}%')
