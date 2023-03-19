@@ -3,15 +3,16 @@ import requests
 import telebot
 import time
 import json
+import csv
 
 class WebScraper:
     
     def __init__(self):
         # EDIT!
         self.game = "Bac bo"
-        self.token = 'TOKEN DO BOT'
-        self.chatid = 'CHAT ID'
-        self.url_API = 'http://189.1.172.198:63000/bac-bo'
+        self.token_bot = 'TOKEN DO BOT'
+        self.user_id = 'CHAT ID'
+        self.url_API = 'http://api.mxvinvest.com:63000/bac-bo'
         self.gales = 2
         self.protection = True
         self.link = '[Clique aqui!](https://www.instagram.com/mscodex/)'
@@ -22,7 +23,6 @@ class WebScraper:
         self.empate_results = 0
         self.loss_results = 0
         self.max_hate = 0
-        # 
         self.win_hate = 0
 
 
@@ -205,19 +205,37 @@ class WebScraper:
             return
 
         # EDITAR ESTRATÉGIAS
-        elif self.analisar == True:
+        elif self.analisar == True:  
 
-            if results[0:1] == ['V']:
-                print('sinal azul')
-                self.direction_color = '🔵'
-                self.send_sinal()
-                return
+            with open('estrategy.csv', newline='') as f:
+                reader = csv.reader(f)
+                ESTRATEGIAS = []
+                for row in reader:
+                    string = str(row[0])
 
-            if results[0:1] == ['A']:
-                print('sinal vermelho')
-                self.direction_color = '🔴'
-                self.send_sinal()
-                return
+                    split_string = string.split('=')
+                    values = list(split_string[0])
+                    values.reverse()
+                    dictionary = {'PADRAO': values, 'ENTRADA': split_string[1]}
+                    ESTRATEGIAS.append(dictionary)
+
+
+                for i in ESTRATEGIAS:
+                    if results[0:len(i['PADRAO'])] == i['PADRAO']:
+
+                        print(f"\nRESULTADOS: {results[0:len(i['PADRAO'])]}")
+
+                        print(f"SINAL ENCONTRADO\nPADRÃO:{i['PADRAO']}\nENTRADA:{i['ENTRADA']}\n")
+
+                        if i['ENTRADA'] == "A":
+                            self.direction_color = '🔵'
+                        elif i['ENTRADA'] == "V":
+                            self.direction_color = '🔴'
+                        elif i['ENTRADA'] == "E":
+                            self.direction_color = '🟡'
+
+                        self.send_sinal()    
+                        break
 
 
 scraper = WebScraper()
