@@ -17,9 +17,11 @@ GAMES PREMIUM
 
 # INSTALAÇÃO
  01 - Clone o repositório do github: https://github.com/mscodex/SportingbetAPI
- 02 - Instale os módulos pip install -r .\requirements.txt
- 03 - Configure as informações do BOT
- 04 - Execute o arquivo api.py usando python api.py
+ 02 - Abra a pasta do jogo que deseja editar
+ 03 - Instale os módulos pip install -r .\requirements.txt
+ 04 - Configure as informações do BOT
+ 05 - Edite suas estratégias em estrategy.csv
+ 06 - Execute o arquivo.py
 
 PRONTO!
 Contato: https://t.me/mscodex

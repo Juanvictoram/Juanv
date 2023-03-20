@@ -119,7 +119,7 @@ class WebScraper:
             self.win_results += 1
             self.max_hate += 1
             self.bot.send_sticker(self.chat_id, sticker='CAACAgEAAxkBAAEBuhtkFBbPbho5iUL3Cw0Zs2WBNdupaAACQgQAAnQVwEe3Q77HvZ8W3y8E')
-            # self.bot.send_message(chat_id=self.chatid, text=(f'''✅✅✅ WIN ✅✅✅'''))
+            # self.bot.send_message(chat_id=self.chat_id, text=(f'''✅✅✅ WIN ✅✅✅'''))
         
         elif result == "LOSS":
             self.count += 1
@@ -129,7 +129,7 @@ class WebScraper:
                 self.loss_results += 1
                 self.max_hate = 0
                 self.bot.send_sticker(self.chat_id, sticker='CAACAgEAAxkBAAEBuh9kFBbVKxciIe1RKvDQBeDu8WfhFAACXwIAAq-xwEfpc4OHHyAliS8E')
-                # self.bot.send_message(chat_id=self.chatid, text=(f'''🚫🚫🚫 LOSS 🚫🚫🚫'''))
+                # self.bot.send_message(chat_id=self.chat_id, text=(f'''🚫🚫🚫 LOSS 🚫🚫🚫'''))
 
             else:
                 print(f"Vamos para o {self.count}ª gale!")
@@ -141,7 +141,7 @@ class WebScraper:
             self.empate_results += 1
             self.max_hate += 1
             self.bot.send_sticker(self.chat_id, sticker='CAACAgEAAxkBAAEBuiNkFBbYDjGessfawWa3v9i4Kj35sgACQAUAAmq0wEejZcySuMSbsC8E')
-            # self.bot.send_message(chat_id=self.chatid, text=(f'''✅✅✅ EMPATE ✅✅✅'''))
+            # self.bot.send_message(chat_id=self.chat_id, text=(f'''✅✅✅ EMPATE ✅✅✅'''))
 
         self.count = 0
         self.analisar = True
