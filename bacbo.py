@@ -9,13 +9,13 @@ class WebScraper:
     
     def __init__(self):
         # EDIT!
-        self.game = "Bac bo"
-        self.token = 'TOKEN DO BOT'
-        self.chatid = 'CHAT ID'
+        self.game = "Bac Bo"
+        self.token = 'TOKEN BOT'
+        self.chat_id = 'CHAT ID'
         self.url_API = 'http://api.mxvinvest.com:63000/bac-bo'
         self.gales = 2
         self.protection = True
-        self.link = '[Clique aqui!](https://www.instagram.com/mscodex/)'
+        self.link = '[Clique aqui!](blaze.com/r/0aJYR6)'
         
         
         # MAYBE EDIT!
@@ -41,7 +41,7 @@ class WebScraper:
             self.check_date = self.date_now
             
             self.bot.send_sticker(
-                self.chatid, sticker='CAACAgEAAxkBAAEBbJJjXNcB92-_4vp2v0B3Plp9FONrDwACvgEAAsFWwUVjxQN4wmmSBCoE')
+                self.chat_id, sticker='CAACAgEAAxkBAAEBbJJjXNcB92-_4vp2v0B3Plp9FONrDwACvgEAAsFWwUVjxQN4wmmSBCoE')
             self.results()
 
             #ZERA OS RESULTADOS
@@ -53,7 +53,7 @@ class WebScraper:
             time.sleep(10)
 
             self.bot.send_sticker(
-                self.chatid, sticker='CAACAgEAAxkBAAEBPQZi-ziImRgbjqbDkPduogMKzv0zFgACbAQAAl4ByUUIjW-sdJsr6CkE')
+                self.chat_id, sticker='CAACAgEAAxkBAAEBPQZi-ziImRgbjqbDkPduogMKzv0zFgACbAQAAl4ByUUIjW-sdJsr6CkE')
             self.results()
             return True
         else:
@@ -68,7 +68,7 @@ class WebScraper:
         self.win_hate = (f'{a:,.2f}%')
 
 
-        self.bot.send_message(chat_id=self.chatid, text=(f'''
+        self.bot.send_message(chat_id=self.chat_id, text=(f'''
 
 ► PLACAR GERAL = ✅{self.win_results} | 🟡{self.empate_results} | 🚫{self.loss_results} 
 ► Consecutivas = {self.max_hate}
@@ -79,7 +79,7 @@ class WebScraper:
        
     def alert_sinal(self):
         message_id = self.bot.send_message(
-            self.chatid, text='''
+            self.chat_id, text='''
 ⚠️ ANALISANDO, FIQUE ATENTO!!!
 ''').message_id
         self.message_ids = message_id
@@ -87,19 +87,19 @@ class WebScraper:
         return
     
     def alert_gale(self):
-        self.message_ids = self.bot.send_message(self.chatid, text=f'''⚠️ Vamos para o {self.count}ª GALE''').message_id
+        self.message_ids = self.bot.send_message(self.chat_id, text=f'''⚠️ Vamos para o {self.count}ª GALE''').message_id
         self.message_delete = True
         return
 
     def delete(self):
         if self.message_delete == True:
-            self.bot.delete_message(chat_id=self.chatid,
+            self.bot.delete_message(chat_id=self.chat_id,
                                     message_id=self.message_ids)
             self.message_delete = False
       
     def send_sinal(self):
         self.analisar = False
-        self.bot.send_message(chat_id=self.chatid, text=(f'''
+        self.bot.send_message(chat_id=self.chat_id, text=(f'''
 
 🎲 *ENTRADA CONFIRMADA!*
 
@@ -118,7 +118,7 @@ class WebScraper:
             print(f"WIN")
             self.win_results += 1
             self.max_hate += 1
-            self.bot.send_sticker(self.chatid, sticker='CAACAgEAAxkBAAEBuhtkFBbPbho5iUL3Cw0Zs2WBNdupaAACQgQAAnQVwEe3Q77HvZ8W3y8E')
+            self.bot.send_sticker(self.chat_id, sticker='CAACAgEAAxkBAAEBuhtkFBbPbho5iUL3Cw0Zs2WBNdupaAACQgQAAnQVwEe3Q77HvZ8W3y8E')
             # self.bot.send_message(chat_id=self.chatid, text=(f'''✅✅✅ WIN ✅✅✅'''))
         
         elif result == "LOSS":
@@ -128,7 +128,7 @@ class WebScraper:
                 print(f"LOSS")
                 self.loss_results += 1
                 self.max_hate = 0
-                self.bot.send_sticker(self.chatid, sticker='CAACAgEAAxkBAAEBuh9kFBbVKxciIe1RKvDQBeDu8WfhFAACXwIAAq-xwEfpc4OHHyAliS8E')
+                self.bot.send_sticker(self.chat_id, sticker='CAACAgEAAxkBAAEBuh9kFBbVKxciIe1RKvDQBeDu8WfhFAACXwIAAq-xwEfpc4OHHyAliS8E')
                 # self.bot.send_message(chat_id=self.chatid, text=(f'''🚫🚫🚫 LOSS 🚫🚫🚫'''))
 
             else:
@@ -140,7 +140,7 @@ class WebScraper:
             print(f"EMPATE")
             self.empate_results += 1
             self.max_hate += 1
-            self.bot.send_sticker(self.chatid, sticker='CAACAgEAAxkBAAEBuiNkFBbYDjGessfawWa3v9i4Kj35sgACQAUAAmq0wEejZcySuMSbsC8E')
+            self.bot.send_sticker(self.chat_id, sticker='CAACAgEAAxkBAAEBuiNkFBbYDjGessfawWa3v9i4Kj35sgACQAUAAmq0wEejZcySuMSbsC8E')
             # self.bot.send_message(chat_id=self.chatid, text=(f'''✅✅✅ EMPATE ✅✅✅'''))
 
         self.count = 0
@@ -209,7 +209,9 @@ class WebScraper:
 
             with open('estrategy.csv', newline='') as f:
                 reader = csv.reader(f)
+
                 ESTRATEGIAS = []
+
                 for row in reader:
                     string = str(row[0])
 
@@ -224,7 +226,6 @@ class WebScraper:
                     if results[0:len(i['PADRAO'])] == i['PADRAO']:
 
                         print(f"\nRESULTADOS: {results[0:len(i['PADRAO'])]}")
-
                         print(f"SINAL ENCONTRADO\nPADRÃO:{i['PADRAO']}\nENTRADA:{i['ENTRADA']}\n")
 
                         if i['ENTRADA'] == "A":
@@ -235,8 +236,14 @@ class WebScraper:
                             self.direction_color = '🟡'
 
                         self.send_sinal()    
-                        break
+                        return
+                    
 
+                for i in ESTRATEGIAS:
+                    if results[0:(len(i['PADRAO'])-1)] == i['PADRAO'][1:len(i['PADRAO'])]:
+                        print("ALERTA DE POSSÍVEL SINAL")
+                        self.alert_sinal()
+                        return
 
 scraper = WebScraper()
 scraper.start()
