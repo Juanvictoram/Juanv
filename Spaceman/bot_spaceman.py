@@ -10,8 +10,8 @@ class WebScraper:
     def __init__(self):
         # EDIT!
         self.game = "Spaceman"
-        self.token = '6076057018:AAE7biv0jvs1nKQ5qonJm57JtSqcZl-NIiI'
-        self.chat_id = '790566338'
+        self.token = 'TOKEN BOT'
+        self.chat_id = 'CHAT ID'
         self.url_API = 'http://api.mxvinvest.com:63000/spaceman'
         self.gales = 2
         self.link = '[Clique aqui!](blaze.com/r/0aJYR6)'
