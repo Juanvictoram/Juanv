@@ -207,7 +207,7 @@ class WebScraper:
 
                 for i in ESTRATEGIAS:
                     lista = results[0:len(i['PADRAO'])]
-
+                    self.alvo = i['SAIDA']
                     count = 0
                     sinal = False
 
@@ -226,7 +226,6 @@ class WebScraper:
                    
                     if sinal:
                         print("Sinal ENCONTRADO!")
-                        self.alvo = i['SAIDA']
                         self.send_sinal(results[0])
                         return
 
