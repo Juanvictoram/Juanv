@@ -24,4 +24,6 @@ GAMES PREMIUM
  06 - Execute o arquivo.py
 
 PRONTO!
-Contato: https://t.me/mscodex
+Contato: https://t.me/mscodex 
+Kkkkkk
+
